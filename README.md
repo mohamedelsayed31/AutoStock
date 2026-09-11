@@ -355,7 +355,7 @@ The default local development connection uses Windows Authentication:
 ```json
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost;Database=AutoStockDB;Trusted\_Connection=True;TrustServerCertificate=True"
+    "DefaultConnection": "Server=localhost;Database=AutoStockDB;Trusted\\\\\\\_Connection=True;TrustServerCertificate=True"
   }
 }
 ```
@@ -369,13 +369,13 @@ Do **not** commit real JWT signing keys or administrator passwords.
 From the repository root:
 
 ```powershell
-dotnet user-secrets set "Jwt:Key" "YOUR\_STRONG\_JWT\_KEY" --project .\\AutoStock.API\\AutoStock.API.csproj
+dotnet user-secrets set "Jwt:Key" "YOUR\\\\\\\_STRONG\\\\\\\_JWT\\\\\\\_KEY" --project .\\\\\\\\AutoStock.API\\\\\\\\AutoStock.API.csproj
 
-dotnet user-secrets set "AdminUser:Email" "admin@example.com" --project .\\AutoStock.API\\AutoStock.API.csproj
+dotnet user-secrets set "AdminUser:Email" "admin@example.com" --project .\\\\\\\\AutoStock.API\\\\\\\\AutoStock.API.csproj
 
-dotnet user-secrets set "AdminUser:Password" "YOUR\_STRONG\_ADMIN\_PASSWORD" --project .\\AutoStock.API\\AutoStock.API.csproj
+dotnet user-secrets set "AdminUser:Password" "YOUR\\\\\\\_STRONG\\\\\\\_ADMIN\\\\\\\_PASSWORD" --project .\\\\\\\\AutoStock.API\\\\\\\\AutoStock.API.csproj
 
-dotnet user-secrets set "AdminUser:FullName" "AutoStock Administrator" --project .\\AutoStock.API\\AutoStock.API.csproj
+dotnet user-secrets set "AdminUser:FullName" "AutoStock Administrator" --project .\\\\\\\\AutoStock.API\\\\\\\\AutoStock.API.csproj
 ```
 
 > `AdminUser:Password` is used by the current seeder when the configured administrator does not already exist in the database.
@@ -383,7 +383,7 @@ dotnet user-secrets set "AdminUser:FullName" "AutoStock Administrator" --project
 ### 4\. Restore packages
 
 ```powershell
-dotnet restore .\\AutoStock.sln
+dotnet restore .\\\\\\\\AutoStock.sln
 ```
 
 ### 5\. Apply migrations
@@ -397,7 +397,7 @@ Update-Database -Project AutoStock.Infrastructure -StartupProject AutoStock.API
 Or, when the EF CLI tool is installed:
 
 ```powershell
-dotnet ef database update --project .\\AutoStock.Infrastructure --startup-project .\\AutoStock.API
+dotnet ef database update --project .\\\\\\\\AutoStock.Infrastructure --startup-project .\\\\\\\\AutoStock.API
 ```
 
 ### 6\. Run the API
@@ -405,7 +405,7 @@ dotnet ef database update --project .\\AutoStock.Infrastructure --startup-projec
 Using the command line:
 
 ```powershell
-dotnet run --project .\\AutoStock.API\\AutoStock.API.csproj
+dotnet run --project .\\\\\\\\AutoStock.API\\\\\\\\AutoStock.API.csproj
 ```
 
 Or set `AutoStock.API` as the Startup Project in Visual Studio and run it.
@@ -425,17 +425,17 @@ AutoStock.Client
 Install dependencies:
 
 ```powershell
-cd .\\AutoStock.Client
+cd .\\\\\\\\AutoStock.Client
 npm.cmd install
 ```
 
 Create a local `.env` from `.env.example` if needed:
 
 ```env
-VITE\_API\_BASE\_URL=https://localhost:7140/api
+VITE\\\\\\\_API\\\\\\\_BASE\\\\\\\_URL=https://localhost:7140/api
 ```
 
-> If your API uses a different local port, update `VITE\_API\_BASE\_URL` to match the URL shown by the API/Visual Studio launch profile.
+> If your API uses a different local port, update `VITE\\\\\\\_API\\\\\\\_BASE\\\\\\\_URL` to match the URL shown by the API/Visual Studio launch profile.
 
 Start development mode:
 
@@ -547,7 +547,7 @@ The Inventory Cost endpoint is explicitly Admin-only.
 Run the complete backend test suite:
 
 ```powershell
-dotnet test .\\AutoStock.Tests\\AutoStock.Tests.csproj
+dotnet test .\\\\\\\\AutoStock.Tests\\\\\\\\AutoStock.Tests.csproj
 ```
 
 Current verified result:
@@ -585,61 +585,85 @@ found 0 vulnerabilities
 
 \---
 
-## Screenshots
+## \## Screenshots
 
-### Login
+## 
 
-!\[AutoStock Login](docs/screenshots/login.png)
+## \### Login
 
-### Dashboard
+## !\[AutoStock Login](docs/screenshots/login.png)
 
-!\[AutoStock Dashboard](docs/screenshots/dashboard.png)
+## 
 
-### Vehicle Inventory
+## \### Dashboard
 
-!\[AutoStock Inventory](docs/screenshots/inventory.png)
+## !\[AutoStock Dashboard](docs/screenshots/dashboard.png)
 
-### Car Details
+## 
 
-!\[AutoStock Car Details](docs/screenshots/car-details.png)
+## \### Vehicle Inventory
 
-### Manage Stock
+## !\[AutoStock Inventory](docs/screenshots/inventory.png)
 
-!\[AutoStock Manage Stock](docs/screenshots/manage-stock.png)
+## 
 
-### Stock History
+## \### Car Details
 
-!\[AutoStock Stock History](docs/screenshots/stock-history.png)
+## !\[AutoStock Car Details](docs/screenshots/car-details.png)
 
-### Purchase Orders
+## 
 
-!\[AutoStock Purchase Orders](docs/screenshots/purchase-orders.png)
+## \### Manage Stock
 
-### Sales
+## !\[AutoStock Manage Stock](docs/screenshots/manage-stock.png)
 
-!\[AutoStock Sales](docs/screenshots/sales.png)
+## 
 
-### Reports
+## \### Stock History
 
-!\[AutoStock Reports](docs/screenshots/reports.png)
+## !\[AutoStock Stock History](docs/screenshots/stock-history.png)
 
-### Profit Report
+## 
 
-!\[AutoStock Profit Report](docs/screenshots/profit-report.png)
+## \### Purchase Orders
 
-### Notifications
+## !\[AutoStock Purchase Orders](docs/screenshots/purchase-orders.png)
 
-!\[AutoStock Notifications](docs/screenshots/notifications.png)
+## 
 
-### Audit Log
+## \### Sales
 
-!\[AutoStock Audit Log](docs/screenshots/audit-log.png)
+## !\[AutoStock Sales](docs/screenshots/sales.png)
 
-### VIN Decoder
+## 
 
-!\[AutoStock VIN Decoder](docs/screenshots/vin-decoder.png)
+## \### Reports
 
-\---
+## !\[AutoStock Reports](docs/screenshots/reports.png)
+
+## 
+
+## \### Profit Report
+
+## !\[AutoStock Profit Report](docs/screenshots/profit-report.png)
+
+## 
+
+## \### Notifications
+
+## !\[AutoStock Notifications](docs/screenshots/notifications.png)
+
+## 
+
+## \### Audit Log
+
+## !\[AutoStock Audit Log](docs/screenshots/audit-log.png)
+
+## 
+
+## \### VIN Decoder
+
+## !\[AutoStock VIN Decoder](docs/screenshots/vin-decoder.png)---
 
 ## Important Business Rules
 
@@ -694,19 +718,19 @@ The repository `.gitignore` excludes local or generated content such as:
 
 ```text
 .vs/
-\*\*/bin/
-\*\*/obj/
-\*\*/node\_modules/
-\*\*/dist/
-\*\*/.vite/
+\\\\\\\*\\\\\\\*/bin/
+\\\\\\\*\\\\\\\*/obj/
+\\\\\\\*\\\\\\\*/node\\\\\\\_modules/
+\\\\\\\*\\\\\\\*/dist/
+\\\\\\\*\\\\\\\*/.vite/
 TestResults/
 coverage/
-\*.trx
+\\\\\\\*.trx
 .env
-.env.\*
+.env.\\\\\\\*
 appsettings.Development.json
 appsettings.Local.json
-\*.log
+\\\\\\\*.log
 AutoStock.API/wwwroot/uploads/
 ```
 
