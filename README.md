@@ -4,7 +4,7 @@ AutoStock is a full-stack automotive inventory management system for managing ve
 
 The project combines an **ASP.NET Core / .NET 8 Web API** backend with a **React + TypeScript + Vite** frontend and **SQL Server**. It follows a layered, Clean Architecture-inspired structure to keep business rules, infrastructure concerns, API delivery, and UI responsibilities separated and maintainable.
 
-\---
+---
 
 ## Table of Contents
 
@@ -26,7 +26,7 @@ The project combines an **ASP.NET Core / .NET 8 Web API** backend with a **React
 * [Development Notes](#development-notes)
 * [Current Status](#current-status)
 
-\---
+---
 
 ## Project Overview
 
@@ -59,7 +59,7 @@ The system supports:
 
 The accounting layer keeps historical sale values immutable. A completed sale stores the cost snapshot used at the time of sale instead of recalculating historical COGS from the car's current inventory cost.
 
-\---
+---
 
 ## Core Features
 
@@ -98,7 +98,7 @@ The dashboard provides operational metrics for total units, brands, categories, 
 
 Notifications include Low Stock, Out of Stock, Sale Completed, and system events. Administrative and accounting-sensitive operations are recorded in the audit log for traceability.
 
-\---
+---
 
 ## Inventory Cost Accounting
 
@@ -161,7 +161,7 @@ PUT /api/InventoryCost/{carId}/basis
 
 This operation requires existing stock, requires the current cost to be unknown, does not change quantity, cannot overwrite an already-known basis, creates an audit entry, and affects future accounting only.
 
-\---
+---
 
 ## Architecture
 
@@ -246,7 +246,7 @@ Tests           → Domain + Application + Infrastructure + API
 |Client|React UI and API integration|
 |Tests|Automated business, accounting, integration, and persistence validation|
 
-\---
+---
 
 ## Tech Stack
 
@@ -287,7 +287,7 @@ Tests           → Domain + Application + Infrastructure + API
 * Git
 * GitHub
 
-\---
+---
 
 ## Project Structure
 
@@ -305,7 +305,7 @@ AutoStock/
 └── README.md
 ```
 
-\---
+---
 
 ## Getting Started
 
@@ -336,11 +336,11 @@ git clone https://github.com/mohamedelsayed31/AutoStock.git
 cd AutoStock
 ```
 
-\---
+---
 
 ## Backend Setup
 
-### 1\. Open the solution
+### 1. Open the solution
 
 Open:
 
@@ -348,45 +348,45 @@ Open:
 AutoStock.sln
 ```
 
-### 2\. Configure the database
+### 2. Configure the database
 
 The default local development connection uses Windows Authentication:
 
 ```json
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost;Database=AutoStockDB;Trusted\\\\\\\_Connection=True;TrustServerCertificate=True"
+    "DefaultConnection": "Server=localhost;Database=AutoStockDB;Trusted_Connection=True;TrustServerCertificate=True"
   }
 }
 ```
 
 For another environment, update the connection string using local configuration, User Secrets, or environment variables as appropriate.
 
-### 3\. Configure local User Secrets
+### 3. Configure local User Secrets
 
 Do **not** commit real JWT signing keys or administrator passwords.
 
 From the repository root:
 
 ```powershell
-dotnet user-secrets set "Jwt:Key" "YOUR\\\\\\\_STRONG\\\\\\\_JWT\\\\\\\_KEY" --project .\\\\\\\\AutoStock.API\\\\\\\\AutoStock.API.csproj
+dotnet user-secrets set "Jwt:Key" "YOUR_STRONG_JWT_KEY" --project .\AutoStock.API\AutoStock.API.csproj
 
-dotnet user-secrets set "AdminUser:Email" "admin@example.com" --project .\\\\\\\\AutoStock.API\\\\\\\\AutoStock.API.csproj
+dotnet user-secrets set "AdminUser:Email" "admin@example.com" --project .\AutoStock.API\AutoStock.API.csproj
 
-dotnet user-secrets set "AdminUser:Password" "YOUR\\\\\\\_STRONG\\\\\\\_ADMIN\\\\\\\_PASSWORD" --project .\\\\\\\\AutoStock.API\\\\\\\\AutoStock.API.csproj
+dotnet user-secrets set "AdminUser:Password" "YOUR_STRONG_ADMIN_PASSWORD" --project .\AutoStock.API\AutoStock.API.csproj
 
-dotnet user-secrets set "AdminUser:FullName" "AutoStock Administrator" --project .\\\\\\\\AutoStock.API\\\\\\\\AutoStock.API.csproj
+dotnet user-secrets set "AdminUser:FullName" "AutoStock Administrator" --project .\AutoStock.API\AutoStock.API.csproj
 ```
 
 > `AdminUser:Password` is used by the current seeder when the configured administrator does not already exist in the database.
 
-### 4\. Restore packages
+### 4. Restore packages
 
 ```powershell
-dotnet restore .\\\\\\\\AutoStock.sln
+dotnet restore .\AutoStock.sln
 ```
 
-### 5\. Apply migrations
+### 5. Apply migrations
 
 Using Visual Studio Package Manager Console:
 
@@ -397,22 +397,22 @@ Update-Database -Project AutoStock.Infrastructure -StartupProject AutoStock.API
 Or, when the EF CLI tool is installed:
 
 ```powershell
-dotnet ef database update --project .\\\\\\\\AutoStock.Infrastructure --startup-project .\\\\\\\\AutoStock.API
+dotnet ef database update --project .\AutoStock.Infrastructure --startup-project .\AutoStock.API
 ```
 
-### 6\. Run the API
+### 6. Run the API
 
 Using the command line:
 
 ```powershell
-dotnet run --project .\\\\\\\\AutoStock.API\\\\\\\\AutoStock.API.csproj
+dotnet run --project .\AutoStock.API\AutoStock.API.csproj
 ```
 
 Or set `AutoStock.API` as the Startup Project in Visual Studio and run it.
 
 Swagger can be used in the development environment to inspect and test API endpoints.
 
-\---
+---
 
 ## Frontend Setup
 
@@ -425,17 +425,17 @@ AutoStock.Client
 Install dependencies:
 
 ```powershell
-cd .\\\\\\\\AutoStock.Client
+cd .\AutoStock.Client
 npm.cmd install
 ```
 
 Create a local `.env` from `.env.example` if needed:
 
 ```env
-VITE\\\\\\\_API\\\\\\\_BASE\\\\\\\_URL=https://localhost:7140/api
+VITE_API_BASE_URL=https://localhost:7140/api
 ```
 
-> If your API uses a different local port, update `VITE\\\\\\\_API\\\\\\\_BASE\\\\\\\_URL` to match the URL shown by the API/Visual Studio launch profile.
+> If your API uses a different local port, update `VITE_API_BASE_URL` to match the URL shown by the API/Visual Studio launch profile.
 
 Start development mode:
 
@@ -455,7 +455,7 @@ Production build:
 npm.cmd run build
 ```
 
-\---
+---
 
 ## API Overview
 
@@ -530,7 +530,7 @@ Example response shape:
 
 `inventoryValue` represents the value of the movement, not the current total inventory balance.
 
-\---
+---
 
 ## Authentication and Authorization
 
@@ -540,14 +540,14 @@ Role-based authorization protects administrative functionality. Examples include
 
 The Inventory Cost endpoint is explicitly Admin-only.
 
-\---
+---
 
 ## Testing and Validation
 
 Run the complete backend test suite:
 
 ```powershell
-dotnet test .\\\\\\\\AutoStock.Tests\\\\\\\\AutoStock.Tests.csproj
+dotnet test .\AutoStock.Tests\AutoStock.Tests.csproj
 ```
 
 Current verified result:
@@ -583,87 +583,50 @@ Current audit result:
 found 0 vulnerabilities
 ```
 
-\---
+---
 
-## \## Screenshots
+## Screenshots
 
-## 
+### Login
+![AutoStock Login](docs/screenshots/login.png)
 
-## \### Login
+### Dashboard
+![AutoStock Dashboard](docs/screenshots/dashboard.png)
 
-## !\[AutoStock Login](docs/screenshots/login.png)
+### Vehicle Inventory
+![AutoStock Inventory](docs/screenshots/inventory.png)
 
-## 
+### Car Details
+![AutoStock Car Details](docs/screenshots/car-details.png)
 
-## \### Dashboard
+### Manage Stock
+![AutoStock Manage Stock](docs/screenshots/manage-stock.png)
 
-## !\[AutoStock Dashboard](docs/screenshots/dashboard.png)
+### Stock History
+![AutoStock Stock History](docs/screenshots/stock-history.png)
 
-## 
+### Purchase Orders
+![AutoStock Purchase Orders](docs/screenshots/purchase-orders.png)
 
-## \### Vehicle Inventory
+### Sales
+![AutoStock Sales](docs/screenshots/sales.png)
 
-## !\[AutoStock Inventory](docs/screenshots/inventory.png)
+### Reports
+![AutoStock Reports](docs/screenshots/reports.png)
 
-## 
+### Profit Report
+![AutoStock Profit Report](docs/screenshots/profit-report.png)
 
-## \### Car Details
+### Notifications
+![AutoStock Notifications](docs/screenshots/notifications.png)
 
-## !\[AutoStock Car Details](docs/screenshots/car-details.png)
+### Audit Log
+![AutoStock Audit Log](docs/screenshots/audit-log.png)
 
-## 
+### VIN Decoder
+![AutoStock VIN Decoder](docs/screenshots/vin-decoder.png)
 
-## \### Manage Stock
-
-## !\[AutoStock Manage Stock](docs/screenshots/manage-stock.png)
-
-## 
-
-## \### Stock History
-
-## !\[AutoStock Stock History](docs/screenshots/stock-history.png)
-
-## 
-
-## \### Purchase Orders
-
-## !\[AutoStock Purchase Orders](docs/screenshots/purchase-orders.png)
-
-## 
-
-## \### Sales
-
-## !\[AutoStock Sales](docs/screenshots/sales.png)
-
-## 
-
-## \### Reports
-
-## !\[AutoStock Reports](docs/screenshots/reports.png)
-
-## 
-
-## \### Profit Report
-
-## !\[AutoStock Profit Report](docs/screenshots/profit-report.png)
-
-## 
-
-## \### Notifications
-
-## !\[AutoStock Notifications](docs/screenshots/notifications.png)
-
-## 
-
-## \### Audit Log
-
-## !\[AutoStock Audit Log](docs/screenshots/audit-log.png)
-
-## 
-
-## \### VIN Decoder
-
-## !\[AutoStock VIN Decoder](docs/screenshots/vin-decoder.png)---
+---
 
 ## Important Business Rules
 
@@ -706,7 +669,7 @@ found 0 vulnerabilities
 * Reaching zero creates an Out of Stock alert.
 * Completed sales can create Sale Completed notifications.
 
-\---
+---
 
 ## Security and Local Configuration
 
@@ -718,25 +681,25 @@ The repository `.gitignore` excludes local or generated content such as:
 
 ```text
 .vs/
-\\\\\\\*\\\\\\\*/bin/
-\\\\\\\*\\\\\\\*/obj/
-\\\\\\\*\\\\\\\*/node\\\\\\\_modules/
-\\\\\\\*\\\\\\\*/dist/
-\\\\\\\*\\\\\\\*/.vite/
+**/bin/
+**/obj/
+**/node_modules/
+**/dist/
+**/.vite/
 TestResults/
 coverage/
-\\\\\\\*.trx
+*.trx
 .env
-.env.\\\\\\\*
+.env.*
 appsettings.Development.json
 appsettings.Local.json
-\\\\\\\*.log
+*.log
 AutoStock.API/wwwroot/uploads/
 ```
 
 `AutoStock.Client/.env.example` is intentionally safe to commit as a configuration template.
 
-\---
+---
 
 ## Development Notes
 
@@ -775,7 +738,7 @@ Repository:
 https://github.com/mohamedelsayed31/AutoStock
 ```
 
-\---
+---
 
 ## Current Status
 
@@ -804,7 +767,7 @@ Production environment configuration
 
 ```
 
-\---
+---
 
 ## License
 
