@@ -4,29 +4,29 @@ AutoStock is a full-stack automotive inventory management system for managing ve
 
 The project combines an **ASP.NET Core / .NET 8 Web API** backend with a **React + TypeScript + Vite** frontend and **SQL Server**. It follows a layered, Clean Architecture-inspired structure to keep business rules, infrastructure concerns, API delivery, and UI responsibilities separated and maintainable.
 
----
+\---
 
 ## Table of Contents
 
-- [Project Overview](#project-overview)
-- [Core Features](#core-features)
-- [Inventory Cost Accounting](#inventory-cost-accounting)
-- [Architecture](#architecture)
-- [Tech Stack](#tech-stack)
-- [Project Structure](#project-structure)
-- [Getting Started](#getting-started)
-- [Backend Setup](#backend-setup)
-- [Frontend Setup](#frontend-setup)
-- [API Overview](#api-overview)
-- [Authentication and Authorization](#authentication-and-authorization)
-- [Testing and Validation](#testing-and-validation)
-- [Screenshots](#screenshots)
-- [Important Business Rules](#important-business-rules)
-- [Security and Local Configuration](#security-and-local-configuration)
-- [Development Notes](#development-notes)
-- [Current Status](#current-status)
+* [Project Overview](#project-overview)
+* [Core Features](#core-features)
+* [Inventory Cost Accounting](#inventory-cost-accounting)
+* [Architecture](#architecture)
+* [Tech Stack](#tech-stack)
+* [Project Structure](#project-structure)
+* [Getting Started](#getting-started)
+* [Backend Setup](#backend-setup)
+* [Frontend Setup](#frontend-setup)
+* [API Overview](#api-overview)
+* [Authentication and Authorization](#authentication-and-authorization)
+* [Testing and Validation](#testing-and-validation)
+* [Screenshots](#screenshots)
+* [Important Business Rules](#important-business-rules)
+* [Security and Local Configuration](#security-and-local-configuration)
+* [Development Notes](#development-notes)
+* [Current Status](#current-status)
 
----
+\---
 
 ## Project Overview
 
@@ -34,32 +34,32 @@ AutoStock provides an end-to-end workflow for automotive inventory operations.
 
 The system supports:
 
-- Vehicle inventory management
-- Brands and categories
-- Suppliers and customers
-- Manual Stock In / Stock Out
-- Purchase order workflow
-- Sales processing
-- Weighted-average inventory costing
-- Cost of Goods Sold (COGS)
-- Gross profit and gross margin reporting
-- Legacy inventory cost-basis reconciliation
-- Stock transaction history
-- Low-stock and out-of-stock alerts
-- Notifications
-- Audit logging
-- JWT authentication
-- Role-based authorization
-- Dashboard and business reports
-- CSV exports
-- VIN-related utilities
-- Car image uploads
-- Search, filtering, and pagination
-- Responsive React administration interface
+* Vehicle inventory management
+* Brands and categories
+* Suppliers and customers
+* Manual Stock In / Stock Out
+* Purchase order workflow
+* Sales processing
+* Weighted-average inventory costing
+* Cost of Goods Sold (COGS)
+* Gross profit and gross margin reporting
+* Legacy inventory cost-basis reconciliation
+* Stock transaction history
+* Low-stock and out-of-stock alerts
+* Notifications
+* Audit logging
+* JWT authentication
+* Role-based authorization
+* Dashboard and business reports
+* CSV exports
+* VIN-related utilities
+* Car image uploads
+* Search, filtering, and pagination
+* Responsive React administration interface
 
 The accounting layer keeps historical sale values immutable. A completed sale stores the cost snapshot used at the time of sale instead of recalculating historical COGS from the car's current inventory cost.
 
----
+\---
 
 ## Core Features
 
@@ -98,7 +98,7 @@ The dashboard provides operational metrics for total units, brands, categories, 
 
 Notifications include Low Stock, Out of Stock, Sale Completed, and system events. Administrative and accounting-sensitive operations are recorded in the audit log for traceability.
 
----
+\---
 
 ## Inventory Cost Accounting
 
@@ -161,7 +161,7 @@ PUT /api/InventoryCost/{carId}/basis
 
 This operation requires existing stock, requires the current cost to be unknown, does not change quantity, cannot overwrite an already-known basis, creates an audit entry, and affects future accounting only.
 
----
+\---
 
 ## Architecture
 
@@ -237,57 +237,57 @@ API             → Application + Infrastructure
 Tests           → Domain + Application + Infrastructure + API
 ```
 
-| Layer | Responsibility |
-|---|---|
-| Domain | Business entities and enums |
-| Application | DTOs, interfaces, contracts, settings, shared application models |
-| Infrastructure | EF Core, SQL Server, Identity, service implementations |
-| API | HTTP endpoints, JWT auth, authorization, exception handling |
-| Client | React UI and API integration |
-| Tests | Automated business, accounting, integration, and persistence validation |
+|Layer|Responsibility|
+|-|-|
+|Domain|Business entities and enums|
+|Application|DTOs, interfaces, contracts, settings, shared application models|
+|Infrastructure|EF Core, SQL Server, Identity, service implementations|
+|API|HTTP endpoints, JWT auth, authorization, exception handling|
+|Client|React UI and API integration|
+|Tests|Automated business, accounting, integration, and persistence validation|
 
----
+\---
 
 ## Tech Stack
 
 ### Backend
 
-- .NET 8
-- ASP.NET Core Web API
-- Entity Framework Core 8
-- ASP.NET Core Identity
-- JWT Bearer Authentication
-- SQL Server
-- Swagger / OpenAPI
-- LINQ
+* .NET 8
+* ASP.NET Core Web API
+* Entity Framework Core 8
+* ASP.NET Core Identity
+* JWT Bearer Authentication
+* SQL Server
+* Swagger / OpenAPI
+* LINQ
 
 ### Frontend
 
-- React
-- TypeScript
-- Vite
-- React Router
-- Axios
-- Lucide React
-- Responsive CSS
+* React
+* TypeScript
+* Vite
+* React Router
+* Axios
+* Lucide React
+* Responsive CSS
 
 ### Testing
 
-- xUnit
-- Moq
-- EF Core SQLite test database
-- SQL Server concurrency coverage for inventory-sensitive scenarios
-- ASP.NET Core integration testing
+* xUnit
+* Moq
+* EF Core SQLite test database
+* SQL Server concurrency coverage for inventory-sensitive scenarios
+* ASP.NET Core integration testing
 
 ### Development Tools
 
-- Visual Studio
-- SQL Server Management Studio
-- npm
-- Git
-- GitHub
+* Visual Studio
+* SQL Server Management Studio
+* npm
+* Git
+* GitHub
 
----
+\---
 
 ## Project Structure
 
@@ -305,7 +305,7 @@ AutoStock/
 └── README.md
 ```
 
----
+\---
 
 ## Getting Started
 
@@ -313,12 +313,12 @@ AutoStock/
 
 Install:
 
-- .NET 8 SDK
-- SQL Server
-- SQL Server Management Studio (recommended)
-- Node.js + npm
-- Visual Studio 2022 or newer
-- Git
+* .NET 8 SDK
+* SQL Server
+* SQL Server Management Studio (recommended)
+* Node.js + npm
+* Visual Studio 2022 or newer
+* Git
 
 Verify:
 
@@ -336,11 +336,11 @@ git clone https://github.com/mohamedelsayed31/AutoStock.git
 cd AutoStock
 ```
 
----
+\---
 
 ## Backend Setup
 
-### 1. Open the solution
+### 1\. Open the solution
 
 Open:
 
@@ -348,45 +348,45 @@ Open:
 AutoStock.sln
 ```
 
-### 2. Configure the database
+### 2\. Configure the database
 
 The default local development connection uses Windows Authentication:
 
 ```json
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost;Database=AutoStockDB;Trusted_Connection=True;TrustServerCertificate=True"
+    "DefaultConnection": "Server=localhost;Database=AutoStockDB;Trusted\_Connection=True;TrustServerCertificate=True"
   }
 }
 ```
 
 For another environment, update the connection string using local configuration, User Secrets, or environment variables as appropriate.
 
-### 3. Configure local User Secrets
+### 3\. Configure local User Secrets
 
 Do **not** commit real JWT signing keys or administrator passwords.
 
 From the repository root:
 
 ```powershell
-dotnet user-secrets set "Jwt:Key" "YOUR_STRONG_JWT_KEY" --project .\AutoStock.API\AutoStock.API.csproj
+dotnet user-secrets set "Jwt:Key" "YOUR\_STRONG\_JWT\_KEY" --project .\\AutoStock.API\\AutoStock.API.csproj
 
-dotnet user-secrets set "AdminUser:Email" "admin@example.com" --project .\AutoStock.API\AutoStock.API.csproj
+dotnet user-secrets set "AdminUser:Email" "admin@example.com" --project .\\AutoStock.API\\AutoStock.API.csproj
 
-dotnet user-secrets set "AdminUser:Password" "YOUR_STRONG_ADMIN_PASSWORD" --project .\AutoStock.API\AutoStock.API.csproj
+dotnet user-secrets set "AdminUser:Password" "YOUR\_STRONG\_ADMIN\_PASSWORD" --project .\\AutoStock.API\\AutoStock.API.csproj
 
-dotnet user-secrets set "AdminUser:FullName" "AutoStock Administrator" --project .\AutoStock.API\AutoStock.API.csproj
+dotnet user-secrets set "AdminUser:FullName" "AutoStock Administrator" --project .\\AutoStock.API\\AutoStock.API.csproj
 ```
 
 > `AdminUser:Password` is used by the current seeder when the configured administrator does not already exist in the database.
 
-### 4. Restore packages
+### 4\. Restore packages
 
 ```powershell
-dotnet restore .\AutoStock.sln
+dotnet restore .\\AutoStock.sln
 ```
 
-### 5. Apply migrations
+### 5\. Apply migrations
 
 Using Visual Studio Package Manager Console:
 
@@ -397,22 +397,22 @@ Update-Database -Project AutoStock.Infrastructure -StartupProject AutoStock.API
 Or, when the EF CLI tool is installed:
 
 ```powershell
-dotnet ef database update --project .\AutoStock.Infrastructure --startup-project .\AutoStock.API
+dotnet ef database update --project .\\AutoStock.Infrastructure --startup-project .\\AutoStock.API
 ```
 
-### 6. Run the API
+### 6\. Run the API
 
 Using the command line:
 
 ```powershell
-dotnet run --project .\AutoStock.API\AutoStock.API.csproj
+dotnet run --project .\\AutoStock.API\\AutoStock.API.csproj
 ```
 
 Or set `AutoStock.API` as the Startup Project in Visual Studio and run it.
 
 Swagger can be used in the development environment to inspect and test API endpoints.
 
----
+\---
 
 ## Frontend Setup
 
@@ -425,17 +425,17 @@ AutoStock.Client
 Install dependencies:
 
 ```powershell
-cd .\AutoStock.Client
+cd .\\AutoStock.Client
 npm.cmd install
 ```
 
 Create a local `.env` from `.env.example` if needed:
 
 ```env
-VITE_API_BASE_URL=https://localhost:7140/api
+VITE\_API\_BASE\_URL=https://localhost:7140/api
 ```
 
-> If your API uses a different local port, update `VITE_API_BASE_URL` to match the URL shown by the API/Visual Studio launch profile.
+> If your API uses a different local port, update `VITE\_API\_BASE\_URL` to match the URL shown by the API/Visual Studio launch profile.
 
 Start development mode:
 
@@ -455,30 +455,30 @@ Production build:
 npm.cmd run build
 ```
 
----
+\---
 
 ## API Overview
 
 Swagger is the source of truth for the complete interactive API contract.
 
-| Area | Example route / pattern | Purpose |
-|---|---|---|
-| Authentication | `/api/Auth/...` | Login and authentication |
-| Cars | `/api/Cars` | Vehicle inventory CRUD and queries |
-| Brands | `/api/Brands` | Brand management |
-| Categories | `/api/Categories` | Category management |
-| Suppliers | `/api/Suppliers` | Supplier management |
-| Customers | `/api/Customers` | Customer management |
-| Stock | `/api/Stock/...` | Stock in, stock out, stock history |
-| Sales | `/api/Sales` | Sale creation and retrieval |
-| Purchase Orders | `/api/PurchaseOrders/...` | Purchase workflow and receiving |
-| Inventory Cost | `/api/InventoryCost/{carId}/basis` | One-time legacy cost-basis assignment |
-| Profit Reports | `/api/ProfitReports` | Revenue, COGS, and profit reporting |
-| Notifications | `/api/Notifications/...` | Notifications |
-| Audit Logs | `/api/AuditLogs/...` | Administrative audit history |
-| Dashboard | `/api/Dashboard/...` | Dashboard metrics |
-| Reports | `/api/Reports/...` | Operational reports |
-| VIN | `/api/Vin/...` | VIN-related utilities |
+|Area|Example route / pattern|Purpose|
+|-|-|-|
+|Authentication|`/api/Auth/...`|Login and authentication|
+|Cars|`/api/Cars`|Vehicle inventory CRUD and queries|
+|Brands|`/api/Brands`|Brand management|
+|Categories|`/api/Categories`|Category management|
+|Suppliers|`/api/Suppliers`|Supplier management|
+|Customers|`/api/Customers`|Customer management|
+|Stock|`/api/Stock/...`|Stock in, stock out, stock history|
+|Sales|`/api/Sales`|Sale creation and retrieval|
+|Purchase Orders|`/api/PurchaseOrders/...`|Purchase workflow and receiving|
+|Inventory Cost|`/api/InventoryCost/{carId}/basis`|One-time legacy cost-basis assignment|
+|Profit Reports|`/api/ProfitReports`|Revenue, COGS, and profit reporting|
+|Notifications|`/api/Notifications/...`|Notifications|
+|Audit Logs|`/api/AuditLogs/...`|Administrative audit history|
+|Dashboard|`/api/Dashboard/...`|Dashboard metrics|
+|Reports|`/api/Reports/...`|Operational reports|
+|VIN|`/api/Vin/...`|VIN-related utilities|
 
 ### Example — Set Inventory Cost Basis
 
@@ -530,7 +530,7 @@ Example response shape:
 
 `inventoryValue` represents the value of the movement, not the current total inventory balance.
 
----
+\---
 
 ## Authentication and Authorization
 
@@ -540,14 +540,14 @@ Role-based authorization protects administrative functionality. Examples include
 
 The Inventory Cost endpoint is explicitly Admin-only.
 
----
+\---
 
 ## Testing and Validation
 
 Run the complete backend test suite:
 
 ```powershell
-dotnet test .\AutoStock.Tests\AutoStock.Tests.csproj
+dotnet test .\\AutoStock.Tests\\AutoStock.Tests.csproj
 ```
 
 Current verified result:
@@ -583,130 +583,106 @@ Current audit result:
 found 0 vulnerabilities
 ```
 
----
+\---
 
 ## Screenshots
 
-Create this directory in the repository:
-
-```text
-docs/screenshots/
-```
-
-Recommended screenshot files:
-
-```text
-docs/screenshots/login.png
-docs/screenshots/dashboard.png
-docs/screenshots/inventory.png
-docs/screenshots/car-details.png
-docs/screenshots/manage-stock.png
-docs/screenshots/stock-history.png
-docs/screenshots/purchase-orders.png
-docs/screenshots/sales.png
-docs/screenshots/reports.png
-docs/screenshots/profit-report.png
-docs/screenshots/notifications.png
-docs/screenshots/audit-log.png
-docs/screenshots/vin-decoder.png
-```
-
 ### Login
 
-![AutoStock Login](docs/screenshots/login.png)
+!\[AutoStock Login](docs/screenshots/login.png)
 
 ### Dashboard
 
-![AutoStock Dashboard](docs/screenshots/dashboard.png)
+!\[AutoStock Dashboard](docs/screenshots/dashboard.png)
 
 ### Vehicle Inventory
 
-![AutoStock Inventory](docs/screenshots/inventory.png)
+!\[AutoStock Inventory](docs/screenshots/inventory.png)
 
 ### Car Details
 
-![AutoStock Car Details](docs/screenshots/car-details.png)
+!\[AutoStock Car Details](docs/screenshots/car-details.png)
 
 ### Manage Stock
 
-![AutoStock Manage Stock](docs/screenshots/manage-stock.png)
+!\[AutoStock Manage Stock](docs/screenshots/manage-stock.png)
 
 ### Stock History
 
-![AutoStock Stock History](docs/screenshots/stock-history.png)
+!\[AutoStock Stock History](docs/screenshots/stock-history.png)
 
 ### Purchase Orders
 
-![AutoStock Purchase Orders](docs/screenshots/purchase-orders.png)
+!\[AutoStock Purchase Orders](docs/screenshots/purchase-orders.png)
 
 ### Sales
 
-![AutoStock Sales](docs/screenshots/sales.png)
+!\[AutoStock Sales](docs/screenshots/sales.png)
 
 ### Reports
 
-![AutoStock Reports](docs/screenshots/reports.png)
+!\[AutoStock Reports](docs/screenshots/reports.png)
 
 ### Profit Report
 
-![AutoStock Profit Report](docs/screenshots/profit-report.png)
+!\[AutoStock Profit Report](docs/screenshots/profit-report.png)
 
 ### Notifications
 
-![AutoStock Notifications](docs/screenshots/notifications.png)
+!\[AutoStock Notifications](docs/screenshots/notifications.png)
 
 ### Audit Log
 
-![AutoStock Audit Log](docs/screenshots/audit-log.png)
+!\[AutoStock Audit Log](docs/screenshots/audit-log.png)
 
 ### VIN Decoder
 
-![AutoStock VIN Decoder](docs/screenshots/vin-decoder.png)
+!\[AutoStock VIN Decoder](docs/screenshots/vin-decoder.png)
 
----
+\---
 
 ## Important Business Rules
 
 ### Inventory
 
-- Stock quantity cannot become negative.
-- Stock In requires a positive unit cost.
-- Stock Out snapshots the inventory average cost available before the movement.
-- Inventory-sensitive operations use transactional/concurrency-aware updates.
+* Stock quantity cannot become negative.
+* Stock In requires a positive unit cost.
+* Stock Out snapshots the inventory average cost available before the movement.
+* Inventory-sensitive operations use transactional/concurrency-aware updates.
 
 ### Weighted Average Cost
 
-- Empty inventory + incoming stock → incoming cost starts the new cost basis.
-- Known existing cost + incoming stock → weighted average is recalculated.
-- Unknown legacy inventory cost + incoming stock → no fabricated average is created.
+* Empty inventory + incoming stock → incoming cost starts the new cost basis.
+* Known existing cost + incoming stock → weighted average is recalculated.
+* Unknown legacy inventory cost + incoming stock → no fabricated average is created.
 
 ### Sales
 
-- A sale snapshots cost at creation time.
-- Historical COGS is not recalculated later.
-- Revenue with unknown historical cost remains distinguishable from revenue with known cost.
+* A sale snapshots cost at creation time.
+* Historical COGS is not recalculated later.
+* Revenue with unknown historical cost remains distinguishable from revenue with known cost.
 
 ### Purchase Orders
 
-- Only valid status transitions are allowed.
-- Receiving adds inventory once.
-- Receiving the same purchase order twice is rejected.
-- Purchase item cost is stored as the stock-movement cost.
+* Only valid status transitions are allowed.
+* Receiving adds inventory once.
+* Receiving the same purchase order twice is rejected.
+* Purchase item cost is stored as the stock-movement cost.
 
 ### Legacy Cost Basis
 
-- Requires current stock greater than zero.
-- Requires unknown `AverageUnitCost`.
-- Cannot overwrite a known basis.
-- Does not rewrite historical sales.
+* Requires current stock greater than zero.
+* Requires unknown `AverageUnitCost`.
+* Cannot overwrite a known basis.
+* Does not rewrite historical sales.
 
 ### Notifications
 
-- Crossing the reorder threshold can create a Low Stock alert.
-- Reaching zero creates an Out of Stock alert.
-- Completed sales can create Sale Completed notifications.
+* Crossing the reorder threshold can create a Low Stock alert.
+* Reaching zero creates an Out of Stock alert.
+* Completed sales can create Sale Completed notifications.
 
----
+\---
 
 ## Security and Local Configuration
 
@@ -718,25 +694,25 @@ The repository `.gitignore` excludes local or generated content such as:
 
 ```text
 .vs/
-**/bin/
-**/obj/
-**/node_modules/
-**/dist/
-**/.vite/
+\*\*/bin/
+\*\*/obj/
+\*\*/node\_modules/
+\*\*/dist/
+\*\*/.vite/
 TestResults/
 coverage/
-*.trx
+\*.trx
 .env
-.env.*
+.env.\*
 appsettings.Development.json
 appsettings.Local.json
-*.log
+\*.log
 AutoStock.API/wwwroot/uploads/
 ```
 
 `AutoStock.Client/.env.example` is intentionally safe to commit as a configuration template.
 
----
+\---
 
 ## Development Notes
 
@@ -775,7 +751,7 @@ Repository:
 https://github.com/mohamedelsayed31/AutoStock
 ```
 
----
+\---
 
 ## Current Status
 
@@ -792,16 +768,21 @@ Tracked-secret scan             ✅
 GitHub main branch              ✅
 ```
 
-Remaining presentation/documentation work:
+Remaining release work:
+
+
 
 ```text
-Add final screenshots to docs/screenshots/
-Review README rendering on GitHub
-Optionally add deployment instructions
+
+Optional deployment configuration
+
+Production environment configuration
+
 ```
 
----
+\---
 
 ## License
 
 This project was developed as an educational full-stack software engineering project.
+
